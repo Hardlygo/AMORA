@@ -35,7 +35,7 @@ def gen_service_attribute_list(service_k):
 
 
 def gen_server_attribute_list(server_M):
-    frequency_M = np.ones((server_M)) * 40000  # 20000  # 单位MHz
+    frequency_M = np.ones((server_M)) * 4*1e13  # 20000  
     storage_M = np.ones((server_M)) * 100  # 单位G
     return frequency_M, storage_M
 
@@ -52,8 +52,8 @@ def gen_state(user_N, server_M, service_K, Mu_K, Local_Frequency):
     g_N_M = np.power(distances, -2)
 
     input_data = np.random.uniform(
-        2.4, 9.6, size=(user_N,)
-    )  # ?单位Mbit  1e6 2.4, 11.2, 4.0, 12.0,
+        0.75, 3, size=(user_N,)
+    )*32*1e5  
 
     # ?完成了距离矩阵生成
 
